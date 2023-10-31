@@ -1,4 +1,4 @@
-
+from typing import List
 
 def seat_permutations(elements: List[str]) -> List[str]:
     # Base condition
