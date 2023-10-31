@@ -7,17 +7,10 @@ class Node:
         self.children.append(child)
 
 # Tuto funkci implementuj.
-def tree_depth(node: Node, level = 0) -> int:
-    current_lvl = 0
-    if len(node.children) > 0:
-        for child in node.children:
-            current_lvl = 1
-            current_lvl += tree_depth(child)
-            if current_lvl > level:
-                level = current_lvl
-
-        return level
-    return current_lvl
+def tree_depth(node: Node) -> int:
+    if not node.children:
+        return 0
+    return max(tree_depth(child) for child in node.children) + 1
 
 # Testy:
 g_subtree = Node('G')
