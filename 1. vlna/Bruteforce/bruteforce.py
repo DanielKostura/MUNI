@@ -1,12 +1,15 @@
 from hashlib import sha256
 
+abeceda = ["a", "b", "c", "d","e" ,"f" ,"g" ,"h" ,"i" ,"j" ,"k","l" ,"m" ,"n" ,"o", "p" ,"q" ,"r" ,"s" ,"t" ,"u","v" ,"w","x","y" ,"z"]
 
 def key_cracking(hashed: str) -> str:
-    lenght = int(len(hashed) / 4)
-    slovo = ""
-    for i in range(16, len(hashed), lenght):
-        slovo = sha256(hashed[i-16:i].encode()).hexdigest()
-    return slovo
+    for i in range(len(abeceda)):
+        for j in range(len(abeceda)):
+            for k in range(len(abeceda)):
+                for l in range(len(abeceda)):
+                    slovo = abeceda[i] + abeceda[j] + abeceda[k] + abeceda[l]
+                    if sha256( slovo.encode() ).hexdigest() == hashed:
+                        return slovo
 
 
 # Verejné testy:
