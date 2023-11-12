@@ -19,7 +19,7 @@ def create_wine_tree() -> tree.DecisionTreeClassifier:
     clf = clf.fit(learn_data, learn_classes)
     return clf
 
-def predict_samples(clf: tree.DecisionTreeClassifier(), 
+def predict_samples(clf: tree.DecisionTreeClassifier(), # najjednoduchsia
                     wine_parameters: list[list[float]]) -> Optional[list[int]]:
     ok = 0
     for i in range(len(wine_parameters)):
@@ -31,7 +31,17 @@ def predict_samples(clf: tree.DecisionTreeClassifier(),
         return pole
     return
 
-def predict_samples_add_none(clf: tree.DecisionTreeClassifier(), 
+def predict_samples_types(clf: tree.DecisionTreeClassifier(), 
+                    wine_parameters: list[list[float]]) -> Optional[list[int]]:
+    
+    for i in range(len(wine_parameters)):
+        if len(wine_parameters[i]) != 4:
+            return None
+            
+    pole = list(clf.predict(wine_parameters))
+    return pole
+
+def predict_samples_add_none(clf: tree.DecisionTreeClassifier(), # prida none do zoznamu
                     wine_parameters: list[list[float]]) -> Optional[list[int]]:
     pole = []
     for i in range(len(wine_parameters)):
@@ -48,6 +58,6 @@ def predict_samples_add_none(clf: tree.DecisionTreeClassifier(),
 
 # Testy:
 clf = create_wine_tree()
-print(predict_samples(clf, [[12.8, 0.76, 79.3, 0.38], [13.5, 2.38, 103.5, 2.41]]))    # [1, 0]
-print(predict_samples(clf, [[12.8, 0.76, 79.3, 0.38], [13.5, 2.38, 103.5, 2.41], [11.6, 3.15, 114.3]])) # None / [1, 0, None]
-print(predict_samples(clf, [[11.6, 3.15, 114.3]]))    # None
+print(predict_samples_types(clf, [[12.8, 0.76, 79.3, 0.38], [13.5, 2.38, 103.5, 2.41]]))    # [1, 0]
+print(predict_samples_types(clf, [[12.8, 0.76, 79.3, 0.38], [13.5, 2.38, 103.5, 2.41], [11.6, 3.15, 114.3]])) # None
+print(predict_samples_types(clf, [[11.6, 3.15, 114.3]]))    # None
