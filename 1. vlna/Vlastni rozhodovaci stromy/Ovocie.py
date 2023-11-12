@@ -47,6 +47,7 @@ data = [
 COST = 0
 HAS_AT_HOME = 1
 MONEY = 2
+rozhodnutie = [COST, HAS_AT_HOME, MONEY]
 
 # Tuto funkci implementuj.
 def make_decision_tree() -> 'DecisionTree':
