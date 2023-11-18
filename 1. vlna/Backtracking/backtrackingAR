@@ -14,24 +14,16 @@ class Country:
 
 
 def is_ok(coloring: COLORING, countries: COUNTRIES) -> bool:
-    for country in countries:
-        name = country.name
-        color = coloring.get(name)
-
-        if color is not None:
-            neighbors = country.neighbors
-            for neighbor in neighbors:
-                neighbor_color = coloring.get(neighbor)
-                if neighbor_color is not None and neighbor_color == color:
-                    return False
-
-    return True
+    for c in countries:
+        for n in c.neighbors:
+            if c.name in coloring and n in coloring and coloring[c.name] == coloring[n]:
+                return False
 
 
 def is_final(
-    coloring: COLORING, # slovník název státu : barva.
+    coloring: COLORING,
     countries: COUNTRIES,
-    country_index: int # je pomocná proměnná, která označuje index státu, který právě obarvujeme
+    country_index: int
 ) -> bool:
     return country_index == len(countries)
 
