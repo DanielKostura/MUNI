@@ -3,19 +3,37 @@ HAS_AT_HOME = 1
 MONEY = 2
 
 data = [
-    ([0.75, False, 0], False),
-    ([0.75, False, 2], True),
-    ([0.75, True, 0], False),
-    ([0.99, False, 1], True),
-    ([1.99, True, 1], False),
-    ([2.99, False, 0], False),
-    ([2.99, True, 2], True),
-    ([3.50, False, 2], True),
-    ([10.99, False, 2], True),
-    ([10.99, True, 2], True)
-    ]
+#([46.85, True, 0], True),
+#([46.70, True, 0], True),
+([31.91, True, 0], False), #3
+#([1.86, False, 2], False),
+#([51.51, True, 0], True),
+#([9.94, True, 0], False),
+#([13.79, False, 2], False),
+#([45.60, True, 2], True),
+#([48.02, False, 0], True),
+#([11.74, False, 1], False),
+#([56.77, True, 1], True),
+#([8.68, True, 2], False),
+#([9.15, False, 1], False),
+#([24.31, True, 2], True),
+#([7.10, True, 0], False),
+([38.88, True, 1], True), #3
+#([38.88, True, 0], False),
+#([49.58, False, 0], True),
+#([47.45, False, 1], True),
+([27.19, True, 1], True),
+([27.19, False, 1], False),
+#([25.75, False, 0], False),
+#([25.75, False, 2], True),
+#([24.09, False, 0], False),
+#([52.10, False, 0], True),
+#([15.87, True, 2], True),
+#([23.55, False, 2], True),
+#([35.86, True, 2], True)
+]
 
-def get_gini(treshhold, data):
+def get_gini(treshhold, data): # vypocita gini atributu
     odpoved_ano_ano = 0
     odpoved_ano_nie = 0
     odpoved_nie_ano = 0
@@ -49,7 +67,7 @@ def get_gini(treshhold, data):
 
 def search_atribut(atribut):
     current_data = []
-    for i in range(len(data)):
+    for i in range(len(data)): # vytvori jednoduchy zoznam
         couple = []
         couple.append(data[i][0][atribut])
         couple.append(data[i][1])
@@ -58,10 +76,10 @@ def search_atribut(atribut):
 
     gini = 1000
 
-    for i in range(len(data)-1):
+    for i in range(len(data)-1): # pocitanie jednotlivých gini v atribute
         mid = (current_data[i][0] + current_data[i+1][0]) / 2
         current_gini = get_gini(mid, current_data)
-        if current_gini < gini:
+        if current_gini < gini: # hladanie najvacsieho gini v atribute
             gini = current_gini
             treshhold = mid
 
@@ -71,7 +89,7 @@ def search_atribut(atribut):
 gini = 1000
 for i in range(len(data[0][0])):
     current_gini, current_treshhold = search_atribut(i)
-    if current_gini < gini:
+    if current_gini < gini: # hladanie najvacsieho gini s pomedzi atributov
         gini = current_gini
         treshhold = current_treshhold
         atribut = i

@@ -29,19 +29,18 @@ class DecisionTree:
     def evaluate(self, data: List[Any]) -> bool:
         return self.first_node.evaluate(data)
 
-
 data = [
-    ([1.99, True, 1], False),
-    ([2.99, True, 2], True),
-    ([0.75, True, 0], False),
-    ([0.99, False, 1], True),
-    ([3.50, False, 2], True),
-    ([2.99, False, 0], False),
-    ([10.99, False, 2], True),
-    ([0.75, False, 0], False),
     ([10.99, True, 2], True),
-    ([0.75, False, 2], True)
-    ]
+    ([5.50, False, 2], True),
+    ([5.50, False, 1], False),
+    ([1.99, True, 0], True),
+    ([4.50, False, 0], False),
+    ([4.50, True, 1], True),
+    ([0.99, True, 2], True),
+    ([3.99, False, 1], True),
+    ([3.99, True, 0], False),
+    ([0.99, False, 0], True)
+]
 
 # constants
 COST = 0
@@ -49,13 +48,18 @@ HAS_AT_HOME = 1
 MONEY = 2
 
 # Tuto funkci implementuj.
-def make_decision_tree() -> 'DecisionTree':
-    node2 = DecisionTreeNode(1, [True], [True, False])
-    node1 = DecisionTreeNode(2, [1, 2], [False, node2, True])
+def make_decision_tree() -> DecisionTree:
+    node3 = DecisionTreeNode(0, [5], [True, False])
+
+    node2 = DecisionTreeNode(2, [1, 2], [False, node3, True])
+
+    node1 = DecisionTreeNode(0, [2.99], [True, node2])
+
     return DecisionTree(node1)
+
 
 tree = make_decision_tree()
 print(tree.evaluate([1.99, False, 0]))
 print(tree.evaluate([1.99, True, 2]))
 print(tree.evaluate([1.99, True, 0]))
-print(tree.evaluate([1.99, False, 1]))
+print(tree.evaluate([3, True, 1]))
