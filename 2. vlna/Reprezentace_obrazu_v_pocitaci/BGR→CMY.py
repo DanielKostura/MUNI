@@ -13,7 +13,6 @@ def bgr_to_cmy(bgr_image):
 
     return r
 
-
 # test
 bgr_img = np.array([[[255,255,0],[150,50,0],[96,69,180]]])
 print(bgr_to_cmy(bgr_img))
