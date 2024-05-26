@@ -12,3 +12,12 @@ xf = fftfreq(N, T)[:N//2]
 plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
 plt.grid()
 plt.show()
+
+# 10
+# 10, 30
+
+# 10
+# 10, 20
+
+# 10
+# 5, 20

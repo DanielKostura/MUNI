@@ -3,33 +3,21 @@ HAS_AT_HOME = 1
 MONEY = 2
 
 data = [
-#([46.85, True, 0], True),
-#([46.70, True, 0], True),
-([31.91, True, 0], False), #3
-#([1.86, False, 2], False),
-#([51.51, True, 0], True),
-#([9.94, True, 0], False),
-#([13.79, False, 2], False),
-#([45.60, True, 2], True),
-#([48.02, False, 0], True),
-#([11.74, False, 1], False),
-#([56.77, True, 1], True),
-#([8.68, True, 2], False),
-#([9.15, False, 1], False),
-#([24.31, True, 2], True),
-#([7.10, True, 0], False),
-([38.88, True, 1], True), #3
-#([38.88, True, 0], False),
-#([49.58, False, 0], True),
-#([47.45, False, 1], True),
-([27.19, True, 1], True),
-([27.19, False, 1], False),
-#([25.75, False, 0], False),
-#([25.75, False, 2], True),
-#([24.09, False, 0], False),
-#([52.10, False, 0], True),
-#([15.87, True, 2], True),
-#([23.55, False, 2], True),
+([20.47, 13.74], False),
+([15.75, 8.74], False),
+([6.23, 5.09], False),
+([11.7, 9.98], False),
+([5.23, 3.47], False),
+([4.5, 7.57], False),
+
+
+([12.5, 1.56], True),
+([23.26, 7.78], True),
+([3.9, 7.21], True),
+([7.77, 5.48], True),
+([7.06, 2.28], True),
+([1.13, 2.39], True)
+
 #([35.86, True, 2], True)
 ]
 
